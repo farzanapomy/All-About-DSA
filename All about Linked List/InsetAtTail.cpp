@@ -43,7 +43,7 @@ void display(Node *n)
         cout << n->value;
         if (n->next != NULL)
         {
-            cout << " " << endl;
+            cout << " -> ";
         }
 
         n = n->next;
@@ -53,13 +53,13 @@ void display(Node *n)
 int main()
 {
     Node *head = NULL;
-    cout << "Enter the value:";
     int n;
-    cin >> n;
     char choice = 'Y';
 
     while (choice == 'Y')
     {
+        cout << "Enter the value:";
+        cin >> n;
         insetAtTail(head, n);
         cout << "Do you want to continue: (Y/N)";
         cin >> choice;
