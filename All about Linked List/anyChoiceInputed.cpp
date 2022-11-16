@@ -70,17 +70,24 @@ int main()
          << "Choice 3: Exit" << endl;
     int choice = 2;
 
-    while (choice == 1 || choice == 2)
+    while (choice !=0)
     {
         cout << "Enter the value:";
         cin >> n;
-        if (choice == 1)
+        switch (choice)
         {
+        case 1:
             insetAtHead(head, n);
-        }
-        else if (choice == 2)
-        {
+            break;
+        case 2:
             insetAtTail(head, n);
+            break;
+        // case 3:
+        //     exit;
+        //     break;
+
+        default:
+            break;
         }
         cout << "Next Choice: ";
         cin >> choice;
