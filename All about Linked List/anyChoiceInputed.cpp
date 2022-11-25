@@ -16,6 +16,14 @@ public:
         next = NULL;
     }
 };
+
+// creating structure
+struct Test
+{
+    int position[1000];
+};
+
+// initialization
 void insetAtTail(Node *&head, int value);
 void insetAtHead(Node *&head, int value);
 int countOfLength(Node *&head, int value);
@@ -23,6 +31,7 @@ void display(Node *n);
 void insertionAtSpecificPosition(Node *&head, int value);
 int searchByValueUnique(Node *&head, int key);
 void searchByValueDuplicate(Node *&head, int key);
+Test searchByValueDuplicateReturn(Node *&head, int key);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -159,7 +168,39 @@ void searchByValueDuplicate(Node *&head, int key)
     }
 }
 
+Test searchByValueDuplicateReturn(Node *&head, int key)
+{
 
+    Node *temp = head;
+    int count = 1, k = 1;
+
+    // initialize structure
+
+    Test T;
+
+    while (temp != NULL)
+    {
+        if (temp->value == key)
+        {
+            // cout << count << " ";
+            T.position[k] = count;
+            k++;
+        }
+        temp = temp->next;
+        count++;
+    }
+    T.position[0] = k;
+    return T;
+}
+
+void searchByValueUnique(Node *&head, int searchValue, int n)
+{
+    // search the position
+    int position = searchByValueUnique(head, searchValue);
+
+    // insert the value at the position+1
+    insertionAtSpecificPosition(head, position + 1, n);
+}
 
 int main()
 {
@@ -169,6 +210,8 @@ int main()
          << "Choice 2: Insertion At Tail" << endl
          << "Choice 3: Insertion At Specific Position" << endl
          << "Choice 4: Search a value (Unique List)" << endl
+         << "Choice 5: Search a value (Duplicate List)" << endl
+         << "Choice 6: Insertion after a specific value (Unique List)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -211,20 +254,37 @@ int main()
         case 5:
             cout << "Enter the value to search: ";
             cin >> n;
-            // cout << "The number is at:";
-            searchByValueDuplicate(head, n);
-            // position = searchByValueUnique(head, n);
-            // if (position != -1)
-            // {
-            //     cout << "The number is at: " << position << endl;
-            // }
-            // else
-            // {
-            //     cout << "The number is not yet in the list." << endl;
-            // }
+            // searchByValueDuplicate(head, n);
+            Test T;
+            T = searchByValueDuplicateReturn(head, n);
+            if (T.position[0] == 1)
+            {
+                cout << "The search Value not yet in the list." << endl;
+            }
+            else
+            {
+                int size = T.position[0];
+                cout << "The value is  found at position : ";
+                for (int i = 1; i < size; i++)
+                {
+                    cout << T.position[i];
+                    if (i < size - 1)
+                    {
+                        cout << ",";
+                    }
+                }
+                cout << endl;
+            }
 
             break;
-
+        case 6:
+            cout << "Enter the value to search:" << endl;
+            int searchValue;
+            cin >> searchValue;
+            cout << "Enter the value to Insert:" << endl;
+            cin >> n;
+            searchByValueUnique(head, searchValue, n);
+            break;
         default:
             break;
         }
