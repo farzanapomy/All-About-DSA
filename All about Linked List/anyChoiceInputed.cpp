@@ -32,6 +32,8 @@ void insertionAtSpecificPosition(Node *&head, int value);
 int searchByValueUnique(Node *&head, int key);
 void searchByValueDuplicate(Node *&head, int key);
 Test searchByValueDuplicateReturn(Node *&head, int key);
+void deletionAtHead(Node *&head);
+void deletionAtTail(Node *&head);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -202,6 +204,40 @@ void searchByValueUnique(Node *&head, int searchValue, int n)
     insertionAtSpecificPosition(head, position + 1, n);
 }
 
+void deletionAtHead(Node *&head)
+{
+    Node *temp = head;
+    if (temp != NULL)
+    {
+        head = temp->next;
+        delete temp;
+        cout << "Deleted successfully." << endl;
+    }
+    else
+    {
+        cout << "There is no value in the List." << endl;
+    }
+}
+void deletionAtTail(Node *&head)
+{
+    Node *temp = head;
+    if (temp->next != NULL)
+    {
+        while (temp->next->next != NULL)
+        {
+            temp = temp->next;
+        }
+        Node *delNode = temp->next;
+        temp->next = NULL;
+        delete delNode;
+        cout << "Deleted successfully." << endl;
+    }
+    else
+    {
+        cout << "There is no value in the List." << endl;
+    }
+}
+
 int main()
 {
     Node *head = NULL;
@@ -212,6 +248,9 @@ int main()
          << "Choice 4: Search a value (Unique List)" << endl
          << "Choice 5: Search a value (Duplicate List)" << endl
          << "Choice 6: Insertion after a specific value (Unique List)" << endl
+         << "Choice 7: Deletion at Head" << endl
+         << "Choice 8: Display the list" << endl
+         << "Choice 9: Deletion at Tail" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -285,6 +324,18 @@ int main()
             cin >> n;
             searchByValueUnique(head, searchValue, n);
             break;
+        case 7:
+            deletionAtHead(head);
+            break;
+        case 8:
+            display(head);
+            break;
+        case 9:
+            deletionAtTail(head);
+            break;
+        case 10:
+            deletionAtTail(head);
+            break;
         default:
             break;
         }
@@ -296,7 +347,7 @@ int main()
     // Node *third = new Node();
     // Node *fourth = new Node();
 
-    cout << endl
+    cout << endl 
          << "Linked List: ";
     display(head);
     cout << "Length: " << countOfLength(head) << endl;
