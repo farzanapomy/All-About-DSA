@@ -34,6 +34,7 @@ void searchByValueDuplicate(Node *&head, int key);
 Test searchByValueDuplicateReturn(Node *&head, int key);
 void deletionAtHead(Node *&head);
 void deletionAtTail(Node *&head);
+void deletionAtSpecificPosition(Node *&head, int position);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -80,6 +81,7 @@ int countOfLength(Node *&head)
 
 void display(Node *n)
 {
+    cout << "The Linked list is: ";
     while (n != NULL)
     {
         cout << n->value;
@@ -218,10 +220,11 @@ void deletionAtHead(Node *&head)
         cout << "There is no value in the List." << endl;
     }
 }
+
 void deletionAtTail(Node *&head)
 {
     Node *temp = head;
-    if (temp->next != NULL)
+    if (temp != NULL && temp->next != NULL)
     {
         while (temp->next->next != NULL)
         {
@@ -234,7 +237,53 @@ void deletionAtTail(Node *&head)
     }
     else
     {
-        cout << "There is no value in the List." << endl;
+
+        // case 1 : Head is NULL
+        if (temp == NULL)
+        {
+            cout << "There is no value in the List." << endl;
+        }
+        else
+            deletionAtHead(head);
+    }
+}
+
+void deletionAtSpecificPosition(Node *&head, int position)
+{
+    Node *temp = head;
+    int i = 1;
+
+    if (temp != NULL && position <= countOfLength(head))
+    {
+        if (position == 1)
+        {
+            deletionAtHead(head);
+        }
+        else if (position == countOfLength(head))
+        {
+            deletionAtTail(head);
+        }
+        else
+        {
+            while (i < position - 1)
+            {
+                temp = temp->next;
+                i++;
+            }
+
+            Node *delNode = temp->next;
+            temp->next = delNode->next;
+            delete delNode;
+        }
+    }
+    else
+    {
+        // case 1: position is > countOfLength
+        // if (position > countOfLength(head))
+        cout << "Position out of Bound.";
+        // case 2: List is NULL
+        // else
+        //     cout << "The number is not yet in the list." << endl;
     }
 }
 
@@ -251,6 +300,7 @@ int main()
          << "Choice 7: Deletion at Head" << endl
          << "Choice 8: Display the list" << endl
          << "Choice 9: Deletion at Tail" << endl
+         << "Choice 10: Deletion at Specific Position" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -334,7 +384,17 @@ int main()
             deletionAtTail(head);
             break;
         case 10:
-            deletionAtTail(head);
+            if (head == NULL)
+            {
+                cout << "There is no value in the List." << endl;
+                break;
+            }
+
+            cout << "Enter the desired position: ";
+            cin >> position;
+            deletionAtSpecificPosition(head, position);
+            cout << endl;
+            display(head);
             break;
         default:
             break;
@@ -347,7 +407,7 @@ int main()
     // Node *third = new Node();
     // Node *fourth = new Node();
 
-    cout << endl 
+    cout << endl
          << "Linked List: ";
     display(head);
     cout << "Length: " << countOfLength(head) << endl;
