@@ -35,6 +35,7 @@ Test searchByValueDuplicateReturn(Node *&head, int key);
 void deletionAtHead(Node *&head);
 void deletionAtTail(Node *&head);
 void deletionAtSpecificPosition(Node *&head, int position);
+void deletionByValueUnique(Node *&head, int value);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -287,6 +288,22 @@ void deletionAtSpecificPosition(Node *&head, int position)
     }
 }
 
+void deletionByValueUnique(Node *&head, int value)
+{
+    // Find the position of the value
+    int position;
+    position = searchByValueUnique(head, value);
+    // delete the Node at that position
+    if (position == -1)
+    {
+        cout << "Position not found in the List."<<endl;
+    }
+    else
+    {
+        deletionAtSpecificPosition(head, position);
+    }
+}
+
 int main()
 {
     Node *head = NULL;
@@ -301,6 +318,7 @@ int main()
          << "Choice 8: Display the list" << endl
          << "Choice 9: Deletion at Tail" << endl
          << "Choice 10: Deletion at Specific Position" << endl
+         << "Choice 11: Deletion by value(Unique List)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -396,6 +414,11 @@ int main()
             cout << endl;
             display(head);
             break;
+        case 11:
+            cout << "Enter the value to Delete: ";
+            int delValue;
+            cin >> delValue;
+            deletionByValueUnique(head, delValue);
         default:
             break;
         }
