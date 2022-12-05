@@ -36,6 +36,7 @@ void deletionAtHead(Node *&head);
 void deletionAtTail(Node *&head);
 void deletionAtSpecificPosition(Node *&head, int position);
 void deletionByValueUnique(Node *&head, int value);
+void reversalOfNonRecursive(Node *head);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -296,12 +297,28 @@ void deletionByValueUnique(Node *&head, int value)
     // delete the Node at that position
     if (position == -1)
     {
-        cout << "Position not found in the List."<<endl;
+        cout << "Position not found in the List." << endl;
     }
     else
     {
         deletionAtSpecificPosition(head, position);
     }
+}
+
+Node *reversalOfNon_Recursive(Node *&head)
+{
+    Node *prev = NULL;
+    Node *current = head;
+    Node *next = head->next;
+
+    while (current != NULL)
+    {
+        current->next = prev;
+        prev = current;
+        current = next;
+        next = next->next;
+    }
+    return prev;
 }
 
 int main()
@@ -319,6 +336,7 @@ int main()
          << "Choice 9: Deletion at Tail" << endl
          << "Choice 10: Deletion at Specific Position" << endl
          << "Choice 11: Deletion by value(Unique List)" << endl
+         << "Choice 12: Reversal of List Non-Recursive" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -401,24 +419,30 @@ int main()
         case 9:
             deletionAtTail(head);
             break;
+
         case 10:
             if (head == NULL)
             {
                 cout << "There is no value in the List." << endl;
                 break;
             }
-
             cout << "Enter the desired position: ";
             cin >> position;
             deletionAtSpecificPosition(head, position);
             cout << endl;
             display(head);
             break;
+
         case 11:
             cout << "Enter the value to Delete: ";
             int delValue;
             cin >> delValue;
             deletionByValueUnique(head, delValue);
+
+        case 12:
+            reversalOfNon_Recursive(head);
+            break;
+
         default:
             break;
         }
