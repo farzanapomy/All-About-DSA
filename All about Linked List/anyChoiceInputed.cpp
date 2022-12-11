@@ -37,6 +37,7 @@ void deletionAtTail(Node *&head);
 void deletionAtSpecificPosition(Node *&head, int position);
 void deletionByValueUnique(Node *&head, int value);
 Node *reversByNonRecursive(Node *&head);
+Node *reverseRecursive(Node *&head);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -311,7 +312,7 @@ Node *reversByNonRecursive(Node *&head)
     Node *current = head;
     if (head == NULL)
     {
-        cout << "The linked list is empty."<<endl;
+        cout << "The linked list is empty." << endl;
         return head;
     }
     Node *next = head->next;
@@ -330,6 +331,23 @@ Node *reversByNonRecursive(Node *&head)
     }
     return prev;
     // return prev;
+}
+
+Node *reverseRecursive(Node *&head)
+{
+    // this is out base call
+    if (head == NULL || head->next == NULL)
+    {
+        if (head == NULL)
+            cout << "The linked list is empty." << endl;
+        return head;
+    }
+
+    // call recursive
+    Node *newHead = reverseRecursive(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return newHead;
 }
 
 int main()
@@ -451,8 +469,9 @@ int main()
             deletionByValueUnique(head, delValue);
 
         case 12:
-            head = reversByNonRecursive(head);
-            // break;
+            // head = reversByNonRecursive(head);
+            head = reverseRecursive(head);
+            break;
 
         default:
             break;
