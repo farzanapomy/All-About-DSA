@@ -3,14 +3,14 @@ using namespace std;
 
 // to store value and node
 
-class Node
+class DublyNode
 {
 public:
     int value;
-    Node *next;
+    DublyNode *next;
 };
 
-void display(Node* n)
+void display(DublyNode* n)
 {
     while (n != NULL)
     {
@@ -26,10 +26,10 @@ void display(Node* n)
 
 int main()
 {
-    Node *head = new Node();
-    Node *second = new Node();
-    Node *third = new Node();
-    Node *fourth = new Node();
+    DublyNode *head = new DublyNode();
+    DublyNode *second = new DublyNode();
+    DublyNode *third = new DublyNode();
+    DublyNode *fourth = new DublyNode();
 
     head->value = 1;
     second->value = 5;

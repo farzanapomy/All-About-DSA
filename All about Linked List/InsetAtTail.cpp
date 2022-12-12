@@ -3,23 +3,23 @@ using namespace std;
 
 // to store value and node
 
-class Node
+class DublyNode
 {
 public:
     int value;
-    Node *next;
+    DublyNode *next;
 
     // creating a constructor
-    Node(int val)
+    DublyNode(int val)
     {
         value = val;
         next = NULL;
     }
 };
 
-void insetAtTail(Node *&head, int value)
+void insetAtTail(DublyNode *&head, int value)
 {
-    Node *newNode = new Node(value);
+    DublyNode *newNode = new DublyNode(value);
 
     // if head null then this will be work
     if (head == NULL)
@@ -28,7 +28,7 @@ void insetAtTail(Node *&head, int value)
         return;
     }
     // if head!= NULL then this will be work.
-    Node *temp = head;
+    DublyNode *temp = head;
     while (temp->next != NULL)
     {
         temp = temp->next;
@@ -36,7 +36,7 @@ void insetAtTail(Node *&head, int value)
     temp->next = newNode;
 }
 
-void display(Node *n)
+void display(DublyNode *n)
 {
     while (n != NULL)
     {
@@ -52,7 +52,7 @@ void display(Node *n)
 
 int main()
 {
-    Node *head = NULL;
+    DublyNode *head = NULL;
     int n;
     char choice = 'Y';
 
