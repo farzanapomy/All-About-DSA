@@ -38,6 +38,7 @@ void deletionAtSpecificPosition(Node *&head, int position);
 void deletionByValueUnique(Node *&head, int value);
 Node *reversByNonRecursive(Node *&head);
 Node *reverseRecursive(Node *&head);
+int replaceInOddPosition(Node *&head, int value);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -350,8 +351,20 @@ Node *reverseRecursive(Node *&head)
     return newHead;
 }
 
-
-
+int replaceInOddPosition(Node *&head)
+{
+    Node *temp = head;
+    int i = 1;
+    while (temp != NULL)
+    {
+        if (i % 2 == 0)
+        {
+            temp->value = -1;
+        }
+        temp = temp->next;
+        i++;
+    }
+}
 
 int main()
 {
@@ -369,6 +382,7 @@ int main()
          << "Choice 10: Deletion at Specific Position" << endl
          << "Choice 11: Deletion by value(Unique List)" << endl
          << "Choice 12: Reversal of List Non-Recursive" << endl
+         << "Choice 13: Replace In Odd Position" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -475,6 +489,8 @@ int main()
             // head = reversByNonRecursive(head);
             head = reverseRecursive(head);
             break;
+        case 13:
+            replaceInOddPosition(head);
 
         default:
             break;
