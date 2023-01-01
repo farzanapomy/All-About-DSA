@@ -16,6 +16,7 @@ Singly Linked List-
  * Deletion By Unique Value 
  * Display Revers By Non Recursive Way
  * Display Eeverse Recursive Way
+ * Replace all the even numbers in the list by -1
  
  
  
