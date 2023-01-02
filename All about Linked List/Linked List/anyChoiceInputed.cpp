@@ -406,6 +406,9 @@ int main()
          << "Choice 12: Reversal of List Non-Recursive" << endl
          << "Choice 13: Replace In Odd Position" << endl
          << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
+         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
+         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
+         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
