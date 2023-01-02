@@ -372,7 +372,13 @@ int findMid(Node *&head)
     Node *slow = head;
     Node *fast = head;
 
-    while (fast->next != NULL)
+    // case 1:  head is empty
+    if (head == NULL)
+    {
+        return -1;
+    }
+
+    while (fast != NULL && fast->next != NULL)
     {
         // it will jump 1 step
         slow = slow->next;
@@ -512,7 +518,15 @@ int main()
         case 14:
             int mid;
             mid = findMid(head);
-            cout << "The mid value is: " << mid << endl;
+            if (mid == -1)
+            {
+                cout << "The list is empty." << endl;
+                break;
+            }
+            else
+            {
+                cout << "The mid value is: " << mid << endl;
+            }
             break;
         default:
             break;
