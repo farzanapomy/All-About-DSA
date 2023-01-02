@@ -40,6 +40,8 @@ Node *reversByNonRecursive(Node *&head);
 Node *reverseRecursive(Node *&head);
 int replaceInOddPosition(Node *&head, int value);
 int findMid(Node *&head);
+void makeCycle(Node *&head, int position);
+bool detectCycle(Node *&head);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -405,6 +407,22 @@ void makeCycle(Node *&head, int position)
     temp->next = startNode;
 }
 
+bool detectCycle(Node *&head)
+{
+    Node *slow = head;
+    Node *fast = head;
+    while (fast != NULL && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -424,7 +442,7 @@ int main()
          << "Choice 13: Replace In Odd Position" << endl
          << "Choice 15: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 16: Make the cycle" << endl
-         << "Choice 17: Remove the cycle" << endl
+         << "Choice 17: Detect the cycle" << endl
          //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
@@ -550,9 +568,24 @@ int main()
             break;
         case 15:
             cout << "Enter the desired position to create a cycle: ";
-            cin >> position; 
+            cin >> position;
             makeCycle(head, position);
             break;
+
+        case 16:
+            bool cycleStatus;
+            cycleStatus = detectCycle(head);
+            if (cycleStatus == true)
+            {
+                cout << "The list has a cycle." << endl;
+            }
+            else
+            {
+                cout << "The list has NO cycle." << endl;
+            }
+
+            break;
+
         default:
             break;
         }
