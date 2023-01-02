@@ -388,6 +388,23 @@ int findMid(Node *&head)
     return slow->value;
 }
 
+void makeCycle(Node *&head, int position)
+{
+    Node *temp = head;
+    Node *startNode;
+    int count = 1;
+    while (temp->next != NULL)
+    {
+        if (count == position)
+        {
+            startNode = temp;
+        }
+        temp = temp->next;
+        count++;
+    }
+    temp->next = startNode;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -406,9 +423,9 @@ int main()
          << "Choice 12: Reversal of List Non-Recursive" << endl
          << "Choice 13: Replace In Odd Position" << endl
          << "Choice 15: Finding the MID (Slow-Fast pointer method)" << endl
-         << "Choice 16: Finding the cycle" << endl
+         << "Choice 16: Make the cycle" << endl
          << "Choice 17: Remove the cycle" << endl
-        //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
+         //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -530,6 +547,11 @@ int main()
             {
                 cout << "The mid value is: " << mid << endl;
             }
+            break;
+        case 15:
+            cout << "Enter the desired position to create a cycle: ";
+            cin >> position; 
+            makeCycle(head, position);
             break;
         default:
             break;
