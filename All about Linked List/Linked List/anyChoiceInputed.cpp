@@ -39,6 +39,7 @@ void deletionByValueUnique(Node *&head, int value);
 Node *reversByNonRecursive(Node *&head);
 Node *reverseRecursive(Node *&head);
 int replaceInOddPosition(Node *&head, int value);
+int findMid(Node *&head);
 
 void insetAtTail(Node *&head, int value)
 {
@@ -366,6 +367,21 @@ int replaceInOddPosition(Node *&head)
     }
 }
 
+int findMid(Node *&head)
+{
+    Node *slow = head;
+    Node *fast = head;
+
+    while (fast->next != NULL)
+    {
+        // it will jump 1 step
+        slow = slow->next;
+        // it will jump 2 step
+        fast = fast->next->next;
+    }
+    return slow->value;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -383,6 +399,7 @@ int main()
          << "Choice 11: Deletion by value(Unique List)" << endl
          << "Choice 12: Reversal of List Non-Recursive" << endl
          << "Choice 13: Replace In Odd Position" << endl
+         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
@@ -491,7 +508,11 @@ int main()
             break;
         case 13:
             replaceInOddPosition(head);
-
+        case 14:
+            int mid;
+            findMid(head);
+            cout << "The mid value is: " << mid << endl;
+            break;
         default:
             break;
         }
