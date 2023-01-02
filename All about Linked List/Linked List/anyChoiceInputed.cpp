@@ -508,9 +508,10 @@ int main()
             break;
         case 13:
             replaceInOddPosition(head);
+            break;
         case 14:
             int mid;
-            findMid(head);
+            mid = findMid(head);
             cout << "The mid value is: " << mid << endl;
             break;
         default:
