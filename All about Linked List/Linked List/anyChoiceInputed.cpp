@@ -405,10 +405,10 @@ int main()
          << "Choice 11: Deletion by value(Unique List)" << endl
          << "Choice 12: Reversal of List Non-Recursive" << endl
          << "Choice 13: Replace In Odd Position" << endl
-         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
-         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
-         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
-         << "Choice 14: Finding the MID (Slow-Fast pointer method)" << endl
+         << "Choice 15: Finding the MID (Slow-Fast pointer method)" << endl
+         << "Choice 16: Finding the cycle" << endl
+         << "Choice 17: Remove the cycle" << endl
+        //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
 
