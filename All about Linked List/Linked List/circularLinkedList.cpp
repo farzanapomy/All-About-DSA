@@ -96,11 +96,11 @@ int countOfLength(Node *&head)
 {
     int count = 0;
     Node *temp = head;
-    while (temp != NULL)
+    do
     {
         temp = temp->next;
         count++;
-    }
+    } while (temp != head);
     return count;
 }
 
@@ -114,14 +114,14 @@ void display(Node *head)
     }
 
     Node *temp = head;
-    while (temp != head)
+    do
     {
-        cout << temp->next;
+        cout << temp->value;
         if (temp != head)
         {
             cout << "-->";
         }
-    }
+    } while (temp != head);
 }
 
 void insertionAtSpecificPosition(Node *&head, int pos, int value)
