@@ -61,7 +61,7 @@ void insetAtTail(Node *&head, int value)
     {
         temp = temp->next;
     }
-    newNode->next = head;
+    newNode->next = head; //newNode->next=temp->next;
     temp->next = newNode;
 }
 
