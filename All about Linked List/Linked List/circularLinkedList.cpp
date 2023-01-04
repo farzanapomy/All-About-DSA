@@ -74,7 +74,7 @@ void insetAtHead(Node *&head, int value)
      *update the tail with newHead
      *update of head
      */
-    
+
     Node *newNode = new Node(value);
     newNode->next = head;
     Node *temp = head;
@@ -104,19 +104,24 @@ int countOfLength(Node *&head)
     return count;
 }
 
-void display(Node *n)
+void display(Node *head)
 {
-    cout << "The Linked list is: ";
-    while (n != NULL)
+
+    if (head == NULL)
     {
-        cout << n->value;
-        if (n->next != NULL)
-        {
-            cout << " -> ";
-        }
-        n = n->next;
+        cout << "The Linked list is empty" << endl;
+        return;
     }
-    cout << endl;
+
+    Node *temp = head;
+    while (temp != head)
+    {
+        cout << temp->next;
+        if (temp != head)
+        {
+            cout << "-->";
+        }
+    }
 }
 
 void insertionAtSpecificPosition(Node *&head, int pos, int value)
