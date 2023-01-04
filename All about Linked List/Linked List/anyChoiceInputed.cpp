@@ -2,7 +2,6 @@
 using namespace std;
 
 // to store value and node
-
 class Node
 {
 public:
@@ -42,6 +41,9 @@ int replaceInOddPosition(Node *&head, int value);
 int findMid(Node *&head);
 void makeCycle(Node *&head, int position);
 bool detectCycle(Node *&head);
+void removeCycle(Node *&head);
+
+// functions
 
 void insetAtTail(Node *&head, int value)
 {
@@ -423,6 +425,31 @@ bool detectCycle(Node *&head)
     return false;
 }
 
+void removeCycle(Node *&head)
+{
+    Node *slow = head;
+    Node *fast = head;
+
+    // step 1: traverse fast=slow
+    do
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    } while (fast != slow);
+
+    // step 2: reinitialize of fast
+    fast = head;
+    // step 3: till fast->next = slow->next
+    while (fast->next != slow->next)
+    {
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    // last step:
+    slow->next = NULL;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -442,7 +469,7 @@ int main()
          << "Choice 13: Replace In Odd Position" << endl
          << "Choice 15: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 16: Make the cycle" << endl
-         << "Choice 17: Detect the cycle" << endl
+         << "Choice 17: Remove the cycle" << endl
          //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
@@ -585,7 +612,19 @@ int main()
             }
 
             break;
+        case 17:
 
+            cycleStatus = detectCycle(head);
+            if (cycleStatus == true)
+            {
+                removeCycle(head);
+            }
+            else
+            {
+                cout << "The list has NO cycle." << endl;
+            }
+
+            break;
         default:
             break;
         }
