@@ -445,7 +445,7 @@ void removeCycle(Node *&head)
         slow = slow->next;
         fast = fast->next;
     }
-    // last step: set null on slow->next
+    // last step: set null on slow->next 
     slow->next = NULL;
 }
 
