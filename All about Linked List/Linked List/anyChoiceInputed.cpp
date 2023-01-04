@@ -431,15 +431,15 @@ void removeCycle(Node *&head)
     Node *fast = head;
 
     // step 1: traverse fast=slow
+    // step 2: reinitialize of fast
+    // step 3: till fast->next = slow->next
     do
     {
         slow = slow->next;
         fast = fast->next->next;
     } while (fast != slow);
 
-    // step 2: reinitialize of fast
     fast = head;
-    // step 3: till fast->next = slow->next
     while (fast->next != slow->next)
     {
         slow = slow->next;
