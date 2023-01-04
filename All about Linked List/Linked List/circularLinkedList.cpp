@@ -33,15 +33,15 @@ void searchByValueDuplicate(Node *&head, int key);
 Test searchByValueDuplicateReturn(Node *&head, int key);
 void deletionAtHead(Node *&head);
 void deletionAtTail(Node *&head);
-void deletionAtSpecificPosition(Node *&head, int position);
-void deletionByValueUnique(Node *&head, int value);
-Node *reversByNonRecursive(Node *&head);
-Node *reverseRecursive(Node *&head);
-int replaceInOddPosition(Node *&head, int value);
-int findMid(Node *&head);
-void makeCycle(Node *&head, int position);
-bool detectCycle(Node *&head);
-void removeCycle(Node *&head);
+// void deletionAtSpecificPosition(Node *&head, int position);
+// void deletionByValueUnique(Node *&head, int value);
+// Node *reversByNonRecursive(Node *&head);
+// Node *reverseRecursive(Node *&head);
+// int replaceInOddPosition(Node *&head, int value);
+// int findMid(Node *&head);
+// void makeCycle(Node *&head, int position);
+// bool detectCycle(Node *&head);
+// void removeCycle(Node *&head);
 
 // functions
 
