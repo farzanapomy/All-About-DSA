@@ -242,8 +242,14 @@ void deletionAtHead(Node *&head)
     Node *temp = head;
     if (temp != NULL)
     {
-        head = temp->next;
-        delete temp;
+        Node *delNode = temp;
+        while (temp->next != head)
+        {
+            temp = temp->next;
+        }
+        temp->next = delNode->next;
+        head = delNode->next;
+        delete delNode;
         cout << "Deleted successfully." << endl;
     }
     else
@@ -255,14 +261,14 @@ void deletionAtHead(Node *&head)
 void deletionAtTail(Node *&head)
 {
     Node *temp = head;
-    if (temp != NULL && temp->next != NULL)
+    if (temp != NULL && temp->next != head)
     {
-        while (temp->next->next != NULL)
+        while (temp->next->next != head)
         {
             temp = temp->next;
         }
         Node *delNode = temp->next;
-        temp->next = NULL;
+        temp->next = delNode->next;
         delete delNode;
         cout << "Deleted successfully." << endl;
     }
@@ -361,38 +367,6 @@ Node *reversByNonRecursive(Node *&head)
     // return prev;
 }
 
-Node *reverseRecursive(Node *&head)
-{
-    // this is out base call
-    if (head == NULL || head->next == NULL)
-    {
-        if (head == NULL)
-            cout << "The linked list is empty." << endl;
-        return head;
-    }
-
-    // call recursive
-    Node *newHead = reverseRecursive(head->next);
-    head->next->next = head;
-    head->next = NULL;
-    return newHead;
-}
-
-int replaceInOddPosition(Node *&head)
-{
-    Node *temp = head;
-    int i = 1;
-    while (temp != NULL)
-    {
-        if (i % 2 == 0)
-        {
-            temp->value = -1;
-        }
-        temp = temp->next;
-        i++;
-    }
-}
-
 int findMid(Node *&head)
 {
     Node *slow = head;
@@ -454,62 +428,16 @@ int main()
             cin >> n;
             insertionAtSpecificPosition(head, position, n);
             break;
+
         case 4:
-            cout << "Enter the value to search: ";
-            cin >> n;
-            position = searchByValueUnique(head, n);
-            if (position != -1)
-            {
-                cout << "The number is at: " << position << endl;
-            }
-            else
-            {
-                cout << "The number is not yet in the list." << endl;
-            }
 
-            break;
-        case 5:
-            cout << "Enter the value to search: ";
-            cin >> n;
-            // searchByValueDuplicate(head, n);
-            Test T;
-            T = searchByValueDuplicateReturn(head, n);
-            if (T.position[0] == 1)
-            {
-                cout << "The search Value not yet in the list." << endl;
-            }
-            else
-            {
-                int size = T.position[0];
-                cout << "The value is  found at position : ";
-                for (int i = 1; i < size; i++)
-                {
-                    cout << T.position[i];
-                    if (i < size - 1)
-                    {
-                        cout << ",";
-                    }
-                }
-                cout << endl;
-            }
-
-            break;
-        case 6:
-            cout << "Enter the value to search:" << endl;
-            int searchValue;
-            cin >> searchValue;
-            cout << "Enter the value to Insert:" << endl;
-            cin >> n;
-            searchByValueUnique(head, searchValue, n);
-            break;
-        case 7:
             deletionAtHead(head);
             break;
-        case 8:
-            display(head);
-            break;
-        case 9:
+        case 5:
             deletionAtTail(head);
+            break;
+        case 6:
+            display(head);
             break;
 
         default:
