@@ -392,62 +392,8 @@ int findMid(Node *&head)
     return slow->value;
 }
 
-void makeCycle(Node *&head, int position)
-{
-    Node *temp = head;
-    Node *startNode;
-    int count = 1;
-    while (temp->next != NULL)
-    {
-        if (count == position)
-        {
-            startNode = temp;
-        }
-        temp = temp->next;
-        count++;
-    }
-    temp->next = startNode;
-}
 
-bool detectCycle(Node *&head)
-{
-    Node *slow = head;
-    Node *fast = head;
-    while (fast != NULL && fast->next != NULL)
-    {
-        slow = slow->next;
-        fast = fast->next->next;
-        if (slow == fast)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-void removeCycle(Node *&head)
-{
-    Node *slow = head;
-    Node *fast = head;
-
-    // step 1: traverse fast=slow
-    // step 2: reinitialize of fast
-    // step 3: till fast->next = slow->next
-    do
-    {
-        slow = slow->next;
-        fast = fast->next->next;
-    } while (fast != slow);
-
-    fast = head;
-    while (fast->next != slow->next)
-    {
-        slow = slow->next;
-        fast = fast->next;
-    }
-    // last step: set null on slow->next 
-    slow->next = NULL;
-}
+   
 
 int main()
 {
