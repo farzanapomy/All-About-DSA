@@ -122,6 +122,7 @@ void display(Node *head)
             cout << "-->";
         }
     } while (temp != head);
+    cout << endl;
 }
 
 void insertionAtSpecificPosition(Node *&head, int pos, int value)
