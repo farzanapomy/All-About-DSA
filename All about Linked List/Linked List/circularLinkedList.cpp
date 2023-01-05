@@ -53,6 +53,7 @@ void insetAtTail(Node *&head, int value)
     if (head == NULL)
     {
         head = newNode;
+        newNode->next = head;
         return;
     }
     // if head!= NULL then this will be work.
@@ -61,7 +62,7 @@ void insetAtTail(Node *&head, int value)
     {
         temp = temp->next;
     }
-    newNode->next = head; //newNode->next=temp->next;
+    newNode->next = head; // newNode->next=temp->next;
     temp->next = newNode;
 }
 
@@ -70,10 +71,23 @@ void insetAtHead(Node *&head, int value)
     /**
      *create new node
      *update of newNode-> next
+     *update the tail with newHead
      *update of head
      */
     Node *newNode = new Node(value);
     newNode->next = head;
+    Node *temp = head;
+    if (head == NULL)
+    {
+        head = newNode;
+        newNode->next = head;
+        return;
+    }
+    while (temp->next != head)
+    {
+        temp = temp->next;
+    }
+    temp->next = newNode;
     head = newNode;
 }
 
