@@ -392,9 +392,6 @@ int findMid(Node *&head)
     return slow->value;
 }
 
-
-   
-
 int main()
 {
     Node *head = NULL;
@@ -402,14 +399,13 @@ int main()
     cout << "Choice 1: Insertion At Head" << endl
          << "Choice 2: Insertion At Tail" << endl
          << "Choice 3: Insertion At Specific Position" << endl
-         << "Choice 4: Search a value (Unique List)" << endl
-         << "Choice 5: Search a value (Duplicate List)" << endl
+         << "Choice 4: Deletion at Head" << endl
+         << "Choice 5: Deletion at Tail" << endl
+         << "Choice 6: Deletion at Specific Position" << endl
+         << "Choice 7: Deletion by value (Unique List)" << endl
          << "Choice 6: Insertion after a specific value (Unique List)" << endl
-         << "Choice 7: Deletion at Head" << endl
          << "Choice 8: Display the list" << endl
-         << "Choice 9: Deletion at Tail" << endl
-         << "Choice 10: Deletion at Specific Position" << endl
-         
+
          //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
     cout << "Enter the choice: ";
