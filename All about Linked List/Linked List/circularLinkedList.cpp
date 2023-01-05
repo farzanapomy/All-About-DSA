@@ -57,10 +57,11 @@ void insetAtTail(Node *&head, int value)
     }
     // if head!= NULL then this will be work.
     Node *temp = head;
-    while (temp->next != NULL)
+    while (temp->next != head)
     {
         temp = temp->next;
     }
+    newNode->next = head;
     temp->next = newNode;
 }
 
@@ -402,9 +403,9 @@ int main()
          << "Choice 4: Deletion at Head" << endl
          << "Choice 5: Deletion at Tail" << endl
          << "Choice 6: Deletion at Specific Position" << endl
-         << "Choice 7: Deletion by value (Unique List)" << endl
-         << "Choice 6: Insertion after a specific value (Unique List)" << endl
-         << "Choice 8: Display the list" << endl
+         //  << "Choice 7: Deletion by value (Unique List)" << endl
+         //  << "Choice 6: Insertion after a specific value (Unique List)" << endl
+         //  << "Choice 8: Display the list" << endl
 
          //  << "Choice 18: Finding the MID (Slow-Fast pointer method)" << endl
          << "Choice 0: Exit" << endl;
