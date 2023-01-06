@@ -11,7 +11,8 @@
     "tuple": "cpp",
     "type_traits": "cpp",
     "utility": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "new": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

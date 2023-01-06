@@ -25,6 +25,11 @@ class Stack
     int count = 0;
 
 public:
+    Stack()
+    {
+        head = NULL;
+        top = NULL;
+    }
     // PUSH
     void push(int val)
     {
@@ -51,12 +56,12 @@ public:
     {
         Node *delNode;
         delNode = top;
-        int ck = -1;
+        int val = -1;
         // if has no element in stack
         if (head == NULL)
         {
             cout << "Stack UnderFlow" << endl;
-            return ck;
+            return val;
         }
         // there is only element
         if (head = top)
@@ -69,10 +74,10 @@ public:
             top = delNode->pre;
             top->next = NULL;
         }
-        ck = delNode->value;
+        val = delNode->value;
         delete delNode;
         count--;
-        return ck;
+        return val;
     }
     // EMPTY
 
@@ -91,7 +96,7 @@ public:
         return count;
     }
     // TOP
-    int top()
+    int Top()
     {
         if (top == NULL)
         {
@@ -101,8 +106,3 @@ public:
     }
 };
 
-int main()
-{
-
-    return 0;
-}
