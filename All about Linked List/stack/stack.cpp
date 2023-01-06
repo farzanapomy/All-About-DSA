@@ -18,11 +18,30 @@ public:
     }
 };
 
-class Stack{
-    Node* head;
-    Node* top;
-    
-     
+class Stack
+{
+    Node *head;
+    Node *top;
+
+public:
+    // PUSH
+    void push(int val)
+    {
+        Node *newNode = new Node(val);
+
+        if (head == NULL)
+        {
+            head = top = newNode;
+            return;
+        }
+        top->next = newNode;
+        top = newNode;
+    }
+
+    // POP
+    // EMPTY
+    // SIZE
+    // TOP
 };
 
 int main()
