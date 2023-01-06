@@ -22,6 +22,7 @@ class Stack
 {
     Node *head;
     Node *top;
+    int count = 0;
 
 public:
     // PUSH
@@ -34,6 +35,7 @@ public:
         if (head == NULL)
         {
             head = top = newNode;
+            count++;
             return;
         }
 
@@ -41,6 +43,7 @@ public:
         top->next = newNode;
         newNode->pre = top;
         top = newNode;
+        count++;
     }
 
     // POP
@@ -55,11 +58,12 @@ public:
             cout << "Stack UnderFlow" << endl;
             return ck;
         }
-
+        // there is only element
         if (head = top)
         {
             head = top = NULL;
         }
+        // there has multiple element
         else
         {
             top = delNode->pre;
@@ -67,11 +71,34 @@ public:
         }
         ck = delNode->value;
         delete delNode;
-        return;
+        count--;
+        return ck;
     }
     // EMPTY
+
+    bool empty()
+    {
+        if (head == NULL)
+        {
+            true;
+        }
+        else
+            return false;
+    }
     // SIZE
+    int size()
+    {
+        return count;
+    }
     // TOP
+    int top()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack UnderFlow. There is no element in top" << endl;
+        }
+        return top->value;
+    }
 };
 
 int main()
