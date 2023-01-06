@@ -48,7 +48,13 @@ public:
     {
         Node *delNode;
         delNode = top;
-        int check;
+        int ck = -1;
+        // if has no element in stack
+        if (head == NULL)
+        {
+            cout << "Stack UnderFlow" << endl;
+            return ck;
+        }
 
         if (head = top)
         {
@@ -59,7 +65,7 @@ public:
             top = delNode->pre;
             top->next = NULL;
         }
-        check = delNode->value;
+        ck = delNode->value;
         delete delNode;
         return;
     }
