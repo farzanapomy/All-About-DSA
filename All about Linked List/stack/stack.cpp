@@ -37,14 +37,32 @@ public:
             return;
         }
 
-        // step 2.2: here has must a value so we just add newNode as only top 
+        // step 2.2: here has must a value so we just add newNode as only top
         top->next = newNode;
         newNode->pre = top;
         top = newNode;
     }
 
     // POP
+    void pop()
+    {
+        Node *delNode;
+        delNode = top;
+        int check;
 
+        if (head = top)
+        {
+            head = top = NULL;
+        }
+        else
+        {
+            top = delNode->pre;
+            top->next = NULL;
+        }
+        check = delNode->value;
+        delete delNode;
+        return;
+    }
     // EMPTY
     // SIZE
     // TOP
