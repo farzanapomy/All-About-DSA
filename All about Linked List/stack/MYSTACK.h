@@ -77,7 +77,7 @@ public:
         val = delNode->value;
         delete delNode;
         count--;
-        cout << "The poped value is: " << val << endl;
+        // cout << "The poped value is: " << val << endl;
         return val;
     }
     // EMPTY
@@ -103,6 +103,7 @@ public:
         if (top == NULL)
         {
             cout << "Stack UnderFlow. There is no element in top" << endl;
+            // working as flag
             chk = -1;
         }
         else
