@@ -61,7 +61,7 @@ public:
         if (head == NULL)
         {
             cout << "Stack UnderFlow" << endl;
-            return;
+            return val;
            
         }
         // there is only element
@@ -100,10 +100,14 @@ public:
     // TOP
     int Top()
     {
+        int chk;
         if (top == NULL)
         {
             cout << "Stack UnderFlow. There is no element in top" << endl;
+            chk=-1;
         }
-        return top->value;
+        else{
+            chk=top->value;
+        }  
     }
 };
