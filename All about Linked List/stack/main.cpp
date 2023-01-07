@@ -4,14 +4,15 @@ using namespace std;
 
 int main()
 {
-    Stack stk;
+    Stack st;
 
-    stk.push(1);
-    stk.push(2);
-    stk.push(3);
-    stk.push(4);
-    stk.pop();
-    stk.pop();
+    st.push(1);
+    st.push(2);
+    st.push(3);
+   
+   
+   
+    st.pop();
 
     cout << "HEllo" << endl;
 
