@@ -65,7 +65,7 @@ public:
            
         }
         // there is only element
-        if (head = top)
+        if (head == top)
         {
             head = top = NULL;
         }
