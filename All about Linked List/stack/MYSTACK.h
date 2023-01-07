@@ -61,7 +61,8 @@ public:
         if (head == NULL)
         {
             cout << "Stack UnderFlow" << endl;
-            return val;
+            return;
+           
         }
         // there is only element
         if (head = top)
@@ -77,7 +78,8 @@ public:
         val = delNode->value;
         delete delNode;
         count--;
-        return val;
+        cout << "The poped value is: " << val << endl;
+        
     }
     // EMPTY
 
@@ -105,4 +107,3 @@ public:
         return top->value;
     }
 };
-

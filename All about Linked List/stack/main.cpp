@@ -9,7 +9,11 @@ int main()
     stk.push(1);
     stk.push(2);
     stk.push(3);
+    stk.push(4);
+    stk.pop();
     stk.pop();
 
-    return 0;
+    cout << "HEllo" << endl;
+
+        return 0;
 }
