@@ -1,1 +1,1 @@
-mid
+ cout << "Choice 1: Insertion At Head" << endl
