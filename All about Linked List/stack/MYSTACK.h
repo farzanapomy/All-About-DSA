@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// creating template
+
 // create  class
 
+template <typename N>
 class Node
 {
 public:
-    int value;
+    N value;
     Node *next;
     Node *pre;
 
-    Node(int value)
+    Node(N value)
     {
         value = value;
         next = NULL;
@@ -18,10 +21,11 @@ public:
     }
 };
 
+template <typename S>
 class Stack
 {
-    Node *head;
-    Node *top;
+    Node<S> *head;
+    Node<S> *top;
     int count = 0;
 
 public:
@@ -31,10 +35,10 @@ public:
         top = NULL;
     }
     // PUSH
-    void push(int val)
+    void push(S val)
     {
         // step 1:  create new Node
-        Node *newNode = new Node(val);
+        Node<S> *newNode = new Node<S>(val);
 
         // step 2.1: if list is empty then newNode set as a head and top
         if (head == NULL)
@@ -54,9 +58,9 @@ public:
     // POP
     void pop()
     {
-        Node *delNode;
+        Node<S> *delNode;
         delNode = top;
-        int val = -1;
+        S val = -1;
         // if has no element in stack
         if (head == NULL)
         {
@@ -64,7 +68,7 @@ public:
             return val;
         }
         // there is only element
-        if (head == top)
+        if (top == head)
         {
             head = top = NULL;
         }
@@ -95,9 +99,9 @@ public:
     int size()
     {
         return count;
-    }
+    } 
     // TOP
-    int Top()
+    S Top()
     {
         int chk;
         if (top == NULL)

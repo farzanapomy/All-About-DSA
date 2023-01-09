@@ -15,5 +15,5 @@ int main()
 {
     cout << "The maximum of 5 and 2 is: " << myMax<int>(5, 2) << endl;
     cout << "The maximum of 5 and 2 is: " << myMax<float>(5.5, 2) << endl;
-    cout << "The maximum of 5 and 2 is: " << myMax<char>('p', '2') << endl;
+    cout << "The maximum of 5 and 2 is: " << myMax<char>('p', 'a') << endl;
 }
