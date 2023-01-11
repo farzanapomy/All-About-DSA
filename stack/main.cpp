@@ -4,17 +4,19 @@ using namespace std;
 
 int main()
 {
-    Stack st;
+    Stack<float> st;
 
-    st.push(1);
-    st.push(2);
-    st.push(3);
-   
-   
-   
+    st.push(1.2);
+    st.push(2.6);
+    st.push(3.4);
+    while (!st.empty())
+    {
+        cout << st.pop() << endl;
+    }
+
     st.pop();
 
     cout << "HEllo" << endl;
 
-        return 0;
+    return 0;
 }

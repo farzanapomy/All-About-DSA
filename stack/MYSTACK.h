@@ -60,7 +60,7 @@ public:
     {
         Node<S> *delNode;
         delNode = top;
-        S val = 1;
+        S val;
         // if has no element in stack
         if (head == NULL)
         {
@@ -107,12 +107,12 @@ public:
         if (top == NULL)
         {
             cout << "Stack UnderFlow. There is no element in top" << endl;
-            // working as flag
-            chk = -1;
         }
         else
         {
             chk = top->value;
         }
+
+        return chk;
     }
 };
