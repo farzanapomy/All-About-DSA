@@ -56,11 +56,11 @@ public:
     }
 
     // POP
-    void pop()
+    S pop()
     {
         Node<S> *delNode;
         delNode = top;
-        S val;
+        S val = 1;
         // if has no element in stack
         if (head == NULL)
         {
