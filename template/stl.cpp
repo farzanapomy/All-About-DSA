@@ -17,4 +17,5 @@ int main()
     vec.push_back(12);
     vec.push_back(13);
     cout << vec[0] << endl;
+    cout << vec.size() << endl;
 }
