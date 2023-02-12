@@ -1,0 +1,4 @@
+//class declaration
+class myName{
+
+}
